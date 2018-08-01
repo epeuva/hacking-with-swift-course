@@ -34,6 +34,11 @@ class ViewController: UITableViewController {
         print(pictures)
         
     }
+    
+    // How many rows should be shown.
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pictures.count
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
