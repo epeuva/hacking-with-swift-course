@@ -22,6 +22,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Title that will be used in Navigator Bar
+        // !!! Both are optional strings !!!∫
+        title = selectedImage
 
         // If there is any selectedImage, load the UIImage with the name of the image file
         if let imageToLoad = selectedImage {

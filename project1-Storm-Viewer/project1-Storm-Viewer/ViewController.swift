@@ -16,6 +16,9 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Title that will be used in Navigator Bar
+        title = "Storm Viewer"
+        
         //  Data  type that lets us work with the filesystem
         let fm = FileManager.default
         
