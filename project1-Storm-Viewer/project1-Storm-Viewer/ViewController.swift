@@ -39,6 +39,18 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pictures.count
     }
+    
+    // Handle table view row click (See extended explanation on page 138)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 1: try loading the "Detail" view controller and typecasting it to be DetailViewController
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            // 2: success! Set its selectedImage property
+            vc.selectedImage = pictures[indexPath.row]
+            
+            // 3: now push it onto the navigation controller
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
         
     // Lazy loading table views rows (like an infinite scroll)
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,11 +61,5 @@ class ViewController: UITableViewController {
         cell.textLabel?.text = pictures[indexPath.row]
         return cell
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
