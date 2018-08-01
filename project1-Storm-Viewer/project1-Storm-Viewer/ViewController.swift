@@ -10,11 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // Properties
+    var pictures = [String]() // [String] “an array of strings”; () “create a new array”
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        //  Data  type that lets us work with the filesystem
+        let fm = FileManager.default
         
+        //  Resource path of our app's bundl
+        let path = Bundle.main.resourcePath!
+        
+        let items = try! fm.contentsOfDirectory(atPath: path)
+        
+        for item in items {
+            if item.hasPrefix("nssl") {
+                // This picture to load
+                pictures.append(item)
+            }
+        }
+        
+        print(pictures)
         
     }
 
@@ -25,4 +42,3 @@ class ViewController: UIViewController {
 
 
 }
-
