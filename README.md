@@ -1,2 +1,2 @@
-# hacking-with-swift-course
-Files created while working on hacking with swift course
+# Hacking with Swift course files
+Files created while working on [Hacking with Swift](https://www.hackingwithswift.com/read) course by Paul Hudson.
