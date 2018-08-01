@@ -16,6 +16,9 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Enable large titles across the app (see: iOS 11 revamped Apple’s design guidelines for first view)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         // Title that will be used in Navigator Bar
         title = "Storm Viewer"
         

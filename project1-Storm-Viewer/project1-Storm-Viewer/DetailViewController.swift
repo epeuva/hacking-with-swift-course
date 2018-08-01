@@ -23,6 +23,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Avoid large titles on detail view
+        navigationItem.largeTitleDisplayMode = .never
+        
         // Title that will be used in Navigator Bar
         // !!! Both are optional strings !!!∫
         title = selectedImage
@@ -44,5 +47,4 @@ class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false
     }
-
 }
