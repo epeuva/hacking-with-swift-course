@@ -39,7 +39,18 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pictures.count
     }
-
+    
+    
+    // Lazy loading table views rows (like an infinite scroll)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Get the table view cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
+        
+        // Put the label of the cell as the picture name
+        cell.textLabel?.text = pictures[indexPath.row]
+        return cell
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
