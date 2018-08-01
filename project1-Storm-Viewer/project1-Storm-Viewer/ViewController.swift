@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     // Properties
     var pictures = [String]() // [String] “an array of strings”; () “create a new array”
