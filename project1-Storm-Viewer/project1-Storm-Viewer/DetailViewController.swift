@@ -9,7 +9,10 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
+    // @IBOutlet: connection between this line of code and Interface Builder.
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
