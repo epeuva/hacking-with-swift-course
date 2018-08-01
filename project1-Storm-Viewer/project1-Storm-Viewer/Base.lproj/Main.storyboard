@@ -56,12 +56,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vT0-i3-Kmp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vT0-i3-Kmp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vT0-i3-Kmp" firstAttribute="bottom" secondItem="ocw-ke-wJc" secondAttribute="bottom" id="ARw-FP-YNY"/>
+                            <constraint firstItem="vT0-i3-Kmp" firstAttribute="leading" secondItem="beT-db-waO" secondAttribute="leading" id="FjO-sv-JDd"/>
+                            <constraint firstItem="vT0-i3-Kmp" firstAttribute="top" secondItem="beT-db-waO" secondAttribute="top" id="GxG-eY-Zuf"/>
+                            <constraint firstAttribute="trailing" secondItem="vT0-i3-Kmp" secondAttribute="trailing" id="MM2-E9-fIF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ocw-ke-wJc"/>
                     </view>
                 </viewController>
