@@ -47,4 +47,12 @@ class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false
     }
+    
+    
+    /// Auto hiddes the home indication if we hide the navigation controller tab
+    ///
+    /// - Returns: if the home indicator should be auto hidden, defaults to false.
+    override func prefersHomeIndicatorAutoHidden() -> Bool {
+        return navigationController?.hidesBarsOnTap ?? false
+    }
 }
