@@ -15,6 +15,11 @@ class DetailViewController: UIViewController {
     
     var selectedImage: String?
     
+    // when the view is about to be shown: viewWillAppear()
+    // when it has been shown: viewDidAppear()
+    // when it's about to go away: viewWillDisappear()
+    // when it has gone away: viewDidDisappear()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +27,18 @@ class DetailViewController: UIViewController {
         if let imageToLoad = selectedImage {
             imageView.image  = UIImage(named: imageToLoad)
         }
+    }
+    
+    // Hide Navigation Bar just before the view will appear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnTap = true
+    }
+    
+    // Show Navigation Bar just before the view will disapear (MANDATORY for not breaking things)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.hidesBarsOnTap = false
     }
 
 }
