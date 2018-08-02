@@ -17,6 +17,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var progressView: UIProgressView!
     
+    
+    /// Creates the view that the controller manages. In this case, with a custom WKWebView.
     override func loadView() {
         webView = WKWebView()
         
@@ -30,6 +32,13 @@ class ViewController: UIViewController, WKNavigationDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Observe:
+        // - Current controller
+        // - WKWebView.estimatedProgress (#keyPath works like #selector)
+        // - Pick the new value
+        // - No context (the object/value that will be returned with the observer for checking purposes)
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
         
         // Upper navigation "open" button
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
@@ -54,6 +63,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
         webView.allowsBackForwardNavigationGestures = true
     }
     
+    
+    /// Opens an UIAlertController in order to show the available urls to visit/open
     @objc func openTapped() {
         // actionSheet type of alert with empty message (only title)
         let ac = UIAlertController(title: "Open page...", message:nil, preferredStyle: .actionSheet)
@@ -70,13 +81,37 @@ class ViewController: UIViewController, WKNavigationDelegate {
         present(ac, animated: true)
     }
     
+    
+    /// Opens a webpage url, coming from an UIAlertAction.title object
+    ///
+    /// - Parameter action: Action generated from an UIAlertController. Its title attribute must have the url to open.
     func openPage(action: UIAlertAction) {
         let url = URL(string: "https://" + action.title!)!
         webView.load(URLRequest(url: url))
     }
     
+    
+    /// Adds the webpage title (from webView) to the current View
+    ///
+    /// - Parameters:
+    ///   - webView: The web view invoking the delegate method
+    ///   - navigation: The navigation object that finished. In this pp, the opened webpage.
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
+    }
+    
+    
+    /// Observes the webView estimated loading progress and sets its value to the progress view bar.
+    ///
+    /// - Parameters:
+    ///   - keyPath: The key path, relative to object, to the value that has changed. "estimatedProgress" for this app.
+    ///   - object: The source object of the key path keyPath. In this case, self.
+    ///   - change: Dictionary of changes
+    ///   - context: The context recieved by the observer
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            progressView.progress = Float(webView.estimatedProgress)
+        }
     }
     
 }
