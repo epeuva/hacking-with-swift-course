@@ -63,6 +63,9 @@ class ViewController: UIViewController {
         
         // Generates a random number from 0 to upperBound (3)
         correctAnswer = GKRandomSource.sharedRandom().nextInt(upperBound: 3)
+        
+        // Adds the uppercased correct answer country name to the navigation bar title
+        title = countries[correctAnswer].uppercased()
     }
     
     /// Loads the default counties for the game
