@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     var countries = [String]()
     
     // Game Score
+    var correctAnswer = 0
     var score = 0
     
     override func viewDidLoad() {
@@ -59,6 +60,9 @@ class ViewController: UIViewController {
         button1.setImage(UIImage(named: countries[0]), for: .normal)
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
+        
+        // Generates a random number from 0 to upperBound (3)
+        correctAnswer = GKRandomSource.sharedRandom().nextInt(upperBound: 3)
     }
     
     /// Loads the default counties for the game
