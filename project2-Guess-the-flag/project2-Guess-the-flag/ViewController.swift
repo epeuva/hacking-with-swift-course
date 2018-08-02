@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameplayKit // Random order
 
 class ViewController: UIViewController {
 
@@ -49,6 +50,10 @@ class ViewController: UIViewController {
     }
     
     func askQuestion() {
+        
+        // Randomize de order of the array using the GameplayKit
+        countries = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: countries) as![String]
+        
         // .normal  refers to "the normal value of UIControlState."
         // See Page 165 (book) for more info.
         button1.setImage(UIImage(named: countries[0]), for: .normal)
