@@ -29,6 +29,12 @@ class DetailViewController: UIViewController {
         // Title that will be used in Navigator Bar
         // !!! Both are optional strings !!!∫
         title = selectedImage
+        
+        // Add UIBarButton to the navigation button (right)
+        // target = current controller => self
+        // action = call shareTapped when tapped
+        // #selector = enforces that shareTapped method will exist
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
 
         // If there is any selectedImage, load the UIImage with the name of the image file
         if let imageToLoad = selectedImage {
@@ -55,4 +61,16 @@ class DetailViewController: UIViewController {
     override func prefersHomeIndicatorAutoHidden() -> Bool {
         return navigationController?.hidesBarsOnTap ?? false
     }
+    
+    
+    /// Shares the current visible photo
+    @objc func shareTapped() {
+        // Share content with other apps / services (like intent?)
+        let vc = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: [])
+        
+        // Anchor the activity view controller on the right bar (iPad only)
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    }
+    
 }
