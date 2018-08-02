@@ -44,13 +44,11 @@ class ViewController: UIViewController {
         askQuestion()
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    func askQuestion() {
+    /// Randomizes the contry arrays, selects a correct answer, and adds it to the title
+    ///
+    /// - Parameter action: action that called this method. Used for compatibility with UIAlertController addAction handler callback
+    func askQuestion(action: UIAlertAction! = nil) {
         
         // Randomize de order of the array using the GameplayKit
         countries = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: countries) as![String]
@@ -89,6 +87,10 @@ class ViewController: UIViewController {
  
     }
     
+    
+    /// Handles the flag tapped and shows an alert telling the user if the answer was correct or not + current total score
+    ///
+    /// - Parameter sender: the tapped button
     @IBAction func buttonTapped(_ sender: UIButton) {
         // Checks if the button tapped is correct (based on its tag)
         if sender.tag == correctAnswer {
@@ -98,10 +100,15 @@ class ViewController: UIViewController {
             title = "Wrong"
             score -= 1
         }
+        
+        // Apple recommends you use .alert when telling users about a situation change, and .actionSheet when asking them to choose from a set of options. See page 177 (book)
+        let ac = UIAlertController(title: title, message: "Your score is \(score).", preferredStyle: .alert)
+        
+        // Modal buttons
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+        
+        // Presents a view controller modal with an animation
+        present(ac, animated: true)
     }
-    
-    
-    
 
 }
-
