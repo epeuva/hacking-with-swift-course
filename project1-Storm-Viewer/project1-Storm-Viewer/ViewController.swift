@@ -41,10 +41,7 @@ class ViewController: UITableViewController {
         
     }
     
-    // How many rows should be shown.
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pictures.count
-    }
+    // MARK: - Delegate
     
     // Handle table view row click (See extended explanation on page 138)
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -57,6 +54,8 @@ class ViewController: UITableViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    // MARK: - Datasource
         
     // Lazy loading table views rows (like an infinite scroll)
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,6 +65,11 @@ class ViewController: UITableViewController {
         // Put the label of the cell as the picture name
         cell.textLabel?.text = pictures[indexPath.row]
         return cell
+    }
+    
+    // How many rows should be shown.
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pictures.count
     }
 
 }
