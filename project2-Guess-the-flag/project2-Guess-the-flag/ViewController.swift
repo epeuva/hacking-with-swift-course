@@ -90,8 +90,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        
-        
+        // Checks if the button tapped is correct (based on its tag)
+        if sender.tag == correctAnswer {
+            title = "Correct"
+            score += 1
+        } else {
+            title = "Wrong"
+            score -= 1
+        }
     }
     
     
