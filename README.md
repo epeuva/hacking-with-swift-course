@@ -7,16 +7,22 @@ Files created while working on [Hacking with Swift](https://www.hackingwithswift
 
 Image viewer with FileManager, Auto Layout, UIImage, Table Views.
 
-[Link to code](project1-Storm-Viewer)
+[Link to code](project1-Storm-Viewer/project1-Storm-Viewer)
 
 ### Project 2 - Guess the flag
 
 Game with UIKit, UIButton, actions, UIAlertController.
 
-[Link to code](project2-Guess-the-flag)
+[Link to code](project2-Guess-the-flag/project2-Guess-the-flag)
 
-### Project 3 - Storm Viewer. Added Social media
+### Project 3 - Storm Viewer with added Social media
 
 Storm Viewer _(project1)_ app updated with UIActivityViewController, UIBarButtonItem.
 
-[Link to code](project3-Storm-Viewer-with-social-media)
+[Link to code](project3-Storm-Viewer-with-social-media/project3-Storm-Viewer)
+
+### Project 4 - Easy browser
+
+Web view app with loadView(), WKWebView, URL, URLRequest, UIToolbar, UIProgressView, KVO (key-value observing)
+
+[Link to code](project4-easy-browser/project4-easy-browser)
