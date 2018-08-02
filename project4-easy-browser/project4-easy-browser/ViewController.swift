@@ -32,6 +32,13 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
         
+        // Flexible empty space
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        // webView.reload (aligned to the right thanks to flexible empty space)
+        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+        toolbarItems = [spacer, refresh]
+        navigationController?.isToolbarHidden = false
+        
         // Create an URL object from an url
         let url = URL(string: "https://github.com/epeuva")!
         
