@@ -45,6 +45,8 @@
                     <navigationItem key="navigationItem" id="4Yv-V5-AJN"/>
                     <connections>
                         <outlet property="button1" destination="AgT-AQ-4ae" id="ZFy-N8-iaZ"/>
+                        <outlet property="button2" destination="MXr-2C-VzV" id="sgA-Mv-AWb"/>
+                        <outlet property="button3" destination="Qaz-8N-thj" id="Wdf-cZ-SMj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
