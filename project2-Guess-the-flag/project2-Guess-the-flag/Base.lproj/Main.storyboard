@@ -22,27 +22,30 @@
                                 <rect key="frame" x="87.5" y="100" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9E-Mv-RHV">
-                                <rect key="frame" x="164.5" y="230" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXr-2C-VzV">
+                                <rect key="frame" x="87.5" y="230" width="200" height="100"/>
+                                <state key="normal" image="us"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZD-el-Xtb">
-                                <rect key="frame" x="164.5" y="290" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qaz-8N-thj">
+                                <rect key="frame" x="87.5" y="360" width="200" height="100"/>
+                                <state key="normal" image="us"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="AgT-AQ-4ae" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="A8V-PD-8HZ"/>
-                            <constraint firstItem="m9E-Mv-RHV" firstAttribute="centerX" secondItem="AgT-AQ-4ae" secondAttribute="centerX" id="Ruf-fr-2iu"/>
-                            <constraint firstItem="qZD-el-Xtb" firstAttribute="top" secondItem="m9E-Mv-RHV" secondAttribute="bottom" constant="30" id="W66-XQ-BMU"/>
-                            <constraint firstItem="m9E-Mv-RHV" firstAttribute="top" secondItem="AgT-AQ-4ae" secondAttribute="bottom" constant="30" id="b9W-1y-v1i"/>
-                            <constraint firstItem="qZD-el-Xtb" firstAttribute="centerX" secondItem="m9E-Mv-RHV" secondAttribute="centerX" id="fGa-cS-FuT"/>
-                            <constraint firstItem="AgT-AQ-4ae" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="iLY-KF-ZF3"/>
+                            <constraint firstItem="Qaz-8N-thj" firstAttribute="centerX" secondItem="MXr-2C-VzV" secondAttribute="centerX" id="3AF-6n-RGb"/>
+                            <constraint firstItem="AgT-AQ-4ae" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4Qu-It-8Tg"/>
+                            <constraint firstItem="MXr-2C-VzV" firstAttribute="centerX" secondItem="AgT-AQ-4ae" secondAttribute="centerX" id="DrX-Wz-8NT"/>
+                            <constraint firstItem="AgT-AQ-4ae" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="LX9-4f-4Bt"/>
+                            <constraint firstItem="MXr-2C-VzV" firstAttribute="top" secondItem="AgT-AQ-4ae" secondAttribute="bottom" constant="30" id="bae-ZC-cRd"/>
+                            <constraint firstItem="Qaz-8N-thj" firstAttribute="top" secondItem="MXr-2C-VzV" secondAttribute="bottom" constant="30" id="cDE-zC-KFk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="4Yv-V5-AJN"/>
+                    <connections>
+                        <outlet property="button1" destination="AgT-AQ-4ae" id="ZFy-N8-iaZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
