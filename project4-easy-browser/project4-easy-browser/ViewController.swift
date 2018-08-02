@@ -16,7 +16,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
     var progressView: UIProgressView!
-    var websites = ["apple.com", "hackingwithswift.com", "github.com/epeuva"]
+    var websites = ["apple.com", "hackingwithswift.com"]
     
     
     /// Creates the view that the controller manages. In this case, with a custom WKWebView.
@@ -101,6 +101,31 @@ class ViewController: UIViewController, WKNavigationDelegate {
     ///   - navigation: The navigation object that finished. In this pp, the opened webpage.
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
+    }
+    
+    
+    /// Checks that the webView page that is opening is on the valid websites to open.
+    ///
+    /// - Parameters:
+    ///   - webView: The web view invoking the delegate method.
+    ///   - navigationAction: Action triggering the navigation request.
+    ///   - decisionHandler: Block to call when your app has decided whether to allow or cancel the navigation.
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        // This decisionHandler is a closure you're being given and are required to execute it. See Page 210 for more info.
+        
+        let url = navigationAction.request.url
+        
+        //  Safe unwrapping the value of url.host
+        if let host = url?.host {
+            for website in websites {
+                if host.contains(website) {
+                    decisionHandler(.allow)
+                    return
+                }
+            }
+        }
+        
+        decisionHandler(.cancel)
     }
     
     
