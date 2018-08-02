@@ -71,9 +71,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
         // actionSheet type of alert with empty message (only title)
         let ac = UIAlertController(title: "Open page...", message:nil, preferredStyle: .actionSheet)
         
-        ac.addAction(UIAlertAction(title: "apple.com",style: .default, handler: openPage))
-        ac.addAction(UIAlertAction(title: "hackingwithswift.com", style: .default, handler: openPage))
-        ac.addAction(UIAlertAction(title: "github.com/epeuva", style: .default, handler: openPage))
+        // Creates the list of websites
+        for website in websites {
+            ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
+        }
         
         // Empty cancel button in order to close the actionSheet
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
