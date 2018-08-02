@@ -16,6 +16,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
     var progressView: UIProgressView!
+    var websites = ["apple.com", "hackingwithswift.com", "github.com/epeuva"]
     
     
     /// Creates the view that the controller manages. In this case, with a custom WKWebView.
@@ -29,6 +30,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         view = webView
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +58,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         navigationController?.isToolbarHidden = false
         
         // Create an URL object from an url
-        let url = URL(string: "https://github.com/epeuva")!
+        let url = URL(string: "https://" + websites[0])!
         
         // WKWebView only loads urls from URLRequest
         webView.load(URLRequest(url: url))
