@@ -15,6 +15,7 @@ import WebKit // for WKWebView
 class ViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
+    var progressView: UIProgressView!
     
     override func loadView() {
         webView = WKWebView()
@@ -30,13 +31,19 @@ class ViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Upper navigation "open" button
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
+        
+        // Progress bar
+        progressView = UIProgressView(progressViewStyle: .default) // default progress bar with unfilled line
+        progressView.sizeToFit() // fit the progress bar to the layout
+        let progressButton = UIBarButtonItem(customView: progressView) // Creates a bar button with a custom view
         
         // Flexible empty space
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         // webView.reload (aligned to the right thanks to flexible empty space)
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
-        toolbarItems = [spacer, refresh]
+        toolbarItems = [progressButton, spacer, refresh]
         navigationController?.isToolbarHidden = false
         
         // Create an URL object from an url
