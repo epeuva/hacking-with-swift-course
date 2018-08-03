@@ -39,6 +39,7 @@ class ViewController: UITableViewController {
     }
     
     
+    /// Randomizes the array of words. Selects one as a valid title world as seed, and reloads all the tableView data.
     func startGame() {
         allWords = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: allWords) as! [String]
         title = allWords[0]
