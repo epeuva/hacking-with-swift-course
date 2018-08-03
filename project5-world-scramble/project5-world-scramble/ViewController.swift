@@ -152,6 +152,7 @@ class ViewController: UITableViewController {
         let checker = UITextChecker()
         
         // Create a range from a string
+        // utf16 is required for compatibility with objc UIKit using international characters
         let range = NSMakeRange(0, word.utf16.count)
         
         // Get the range of misspelled words
