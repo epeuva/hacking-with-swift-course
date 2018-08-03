@@ -26,3 +26,9 @@ Storm Viewer _(project1)_ app updated with UIActivityViewController, UIBarButton
 Web view app with loadView(), WKWebView, URL, URLRequest, UIToolbar, UIProgressView, KVO (key-value observing)
 
 [Link to code](project4-easy-browser/project4-easy-browser)
+
+### Project 5 - Word Scramble
+
+Game with UITableView, UIAlertController, world validation with NSRange, UITextChecker, normal and trailing closures and file loading with path(forResource:)
+
+[Link to code](project5-world-scramble/project5-world-scramble)
