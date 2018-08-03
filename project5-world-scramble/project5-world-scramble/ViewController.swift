@@ -22,6 +22,9 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Add button in navigation bar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
 
         // Try to load the words of the start.txt file
         if let startWordsPath = Bundle.main.path(forResource: "start", ofType: "txt") {
@@ -36,6 +39,7 @@ class ViewController: UITableViewController {
         
         startGame()
     }
+    
     
     func startGame() {
         allWords = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: allWords) as! [String]
@@ -56,6 +60,36 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
         cell.textLabel?.text = usedWords[indexPath.row]
         return cell
+    }
+    
+    
+    @objc func promptForAnswer() {
+        // UIAlertController creation
+        let ac = UIAlertController(title: "Enter Answer", message: nil, preferredStyle: .alert)
+        
+        // Adds an editable text input field to the UIAlertController
+        ac.addTextField()
+        
+        // Similar code with normal closure syntax
+        // UIAlertAction(title: "Continue", style: .default, handler: { CLOSURE CODE HERE })
+        
+        // Trailing closure syntax (method expecting a closure as its final parameter)
+        // UIAlertAction(title: "Continue", style: .default) { CLOSURE CODE HERE }
+ 
+        // Trailing closure syntax
+        let submitAction = UIAlertAction(title: "Submit", style: .default)
+            { // Trailing closure
+                // Specify swift that you don't want strong references
+                // use/reference self and ac inside the closure, but do not use them as strong references
+                [unowned self, ac] (action: UIAlertAction) /* <-- Definition of the closure */ in /* closure code --> */
+                let answer = ac.textFields![0] // read the editable text field
+                // self is required in order to call submit when the closure gets executed
+                self.submit(answer: answer.text!)
+            }
+        
+        // Add UIAlertAction to the UIAlertController
+        ac.addAction(submitAction)
+        present(ac, animated: true)
     }
     
 }
