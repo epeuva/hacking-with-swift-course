@@ -35,8 +35,6 @@ class ViewController: UITableViewController {
             allWords = defaultWords
         }
         
-        print(allWords)
-        
         startGame()
     }
     
@@ -63,6 +61,7 @@ class ViewController: UITableViewController {
     }
     
     
+    /// Opens an UIAlertController with a textField in order to let the user write and submit a word
     @objc func promptForAnswer() {
         // UIAlertController creation
         let ac = UIAlertController(title: "Enter Answer", message: nil, preferredStyle: .alert)
@@ -82,7 +81,7 @@ class ViewController: UITableViewController {
                 // Specify swift that you don't want strong references
                 // use/reference self and ac inside the closure, but do not use them as strong references
                 [unowned self, ac] (action: UIAlertAction) /* <-- Definition of the closure */ in /* closure code --> */
-                let answer = ac.textFields![0] // read the editable text field
+                let answer = ac.textFields![0] // read the editable text field, unwrapping the array of textfields (optional)
                 // self is required in order to call submit when the closure gets executed
                 self.submit(answer: answer.text!)
             }
@@ -90,6 +89,55 @@ class ViewController: UITableViewController {
         // Add UIAlertAction to the UIAlertController
         ac.addAction(submitAction)
         present(ac, animated: true)
+    }
+    
+    
+    
+    /// Handles the word submision so it could be added to the table view if:
+    ///  - The word is Original, Real and Possible
+    ///
+    /// - Parameter answer: the word to be added
+    func submit(answer: String){
+        
+        let lowerAnswer = answer.lowercased()
+        
+        if isPossible(word: lowerAnswer) && isOriginal(word: lowerAnswer) && isReal(word: lowerAnswer) {
+            usedWords.insert(answer, at: 0)
+            
+            // gets the path of the row 0, section 0, in order to be able to insert items.
+            let indexPath = IndexPath(row: 0, section: 0)
+            
+            tableView.insertRows(at: [indexPath], with: .automatic)
+
+        }
+
+    }
+    
+    
+    /// Return if the combination of letters is possible with the currend used main word (seed)
+    ///
+    /// - Parameter word: word that will be checked
+    /// - Returns: if the letters/ world combination is possible with the current word (seed)
+    func isPossible(word: String) -> Bool {
+        return true
+    }
+    
+    
+    /// Returns if the word is original, or if it is a duplicate (!Original)
+    ///
+    /// - Parameter word: word that will be checked
+    /// - Returns: if the word used is original (not a duplciate)
+    func isOriginal(word: String) -> Bool {
+        return true
+    }
+    
+    
+    /// Returns if the word is a real one.
+    ///
+    /// - Parameter word: word that will be checked
+    /// - Returns: if the world is a real one (searchable on a dictionary)
+    func isReal(word: String) -> Bool {
+        return true
     }
     
 }
