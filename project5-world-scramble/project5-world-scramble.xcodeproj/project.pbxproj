@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33818F7E21143E440021680F /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 33818F7D21143E440021680F /* start.txt */; };
 		33F6E2452113654C00627B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E2442113654C00627B4C /* AppDelegate.swift */; };
 		33F6E2472113654C00627B4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F6E2462113654C00627B4C /* ViewController.swift */; };
 		33F6E24A2113654C00627B4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F6E2482113654C00627B4C /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33818F7D21143E440021680F /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 		33F6E2412113654C00627B4C /* project5-world-scramble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project5-world-scramble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F6E2442113654C00627B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33F6E2462113654C00627B4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33818F8121143E5D0021680F /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				33818F7D21143E440021680F /* start.txt */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
 		33F6E2382113654B00627B4C = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +70,7 @@
 				33F6E24B2113654D00627B4C /* Assets.xcassets */,
 				33F6E24D2113654D00627B4C /* LaunchScreen.storyboard */,
 				33F6E2502113654D00627B4C /* Info.plist */,
+				33818F8121143E5D0021680F /* Files */,
 			);
 			path = "project5-world-scramble";
 			sourceTree = "<group>";
@@ -123,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33F6E24F2113654D00627B4C /* LaunchScreen.storyboard in Resources */,
+				33818F7E21143E440021680F /* start.txt in Resources */,
 				33F6E24C2113654D00627B4C /* Assets.xcassets in Resources */,
 				33F6E24A2113654C00627B4C /* Main.storyboard in Resources */,
 			);
