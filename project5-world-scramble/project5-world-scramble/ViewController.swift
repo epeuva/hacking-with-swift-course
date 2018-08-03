@@ -44,8 +44,18 @@ class ViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    
+    // Count the table view rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return usedWords.count
+    }
+    
+    
+    // Lazy loading table views rows with used words
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
+        cell.textLabel?.text = usedWords[indexPath.row]
+        return cell
     }
     
 }
