@@ -101,16 +101,38 @@ class ViewController: UITableViewController {
         
         let lowerAnswer = answer.lowercased()
         
-        if isPossible(word: lowerAnswer) && isOriginal(word: lowerAnswer) && isReal(word: lowerAnswer) {
-            usedWords.insert(answer, at: 0)
-            
-            // gets the path of the row 0, section 0, in order to be able to insert items.
-            let indexPath = IndexPath(row: 0, section: 0)
-            
-            tableView.insertRows(at: [indexPath], with: .automatic)
-
+        let errorTitle: String
+        let errorMessage: String
+        
+        if isPossible(word: lowerAnswer) {
+            if isOriginal(word: lowerAnswer) {
+                if isReal(word: lowerAnswer) {
+                    usedWords.insert(answer, at: 0)
+                    
+                    // gets the path of the row 0, section 0, in order to be able to insert items.
+                    let indexPath = IndexPath(row: 0, section: 0)
+                    
+                    tableView.insertRows(at: [indexPath], with: .automatic)
+                    
+                    return // all ok, return to avoid showing the error UIAlertController
+                    
+                } else {
+                    errorTitle = "Word not recognised"
+                    errorMessage = "You can't just make them up, you know!"
+                }
+            } else {
+                errorTitle = "Word used already '\(title!.lowercased())'"
+                errorMessage = "Be more original!"
+            }
+        } else {
+            errorTitle = "Word not possible"
+            errorMessage = "You can't spell that word from '\(title!.lowercased())'!"
         }
-
+        
+        // Show the UIAlertController when the word entered is not correct
+        let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
     
