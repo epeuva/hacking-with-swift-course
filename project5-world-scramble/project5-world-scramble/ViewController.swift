@@ -119,6 +119,16 @@ class ViewController: UITableViewController {
     /// - Parameter word: word that will be checked
     /// - Returns: if the letters/ world combination is possible with the current word (seed)
     func isPossible(word: String) -> Bool {
+        var tempWord = title!.lowercased()
+        
+        for letter in word {
+            if let pos = tempWord.range(of: String(letter)) {
+                tempWord.remove(at: pos.lowerBound)
+            } else {
+                return false
+            }
+        }
+        
         return true
     }
     
@@ -126,9 +136,9 @@ class ViewController: UITableViewController {
     /// Returns if the word is original, or if it is a duplicate (!Original)
     ///
     /// - Parameter word: word that will be checked
-    /// - Returns: if the word used is original (not a duplciate)
+    /// - Returns: if the word used is original (not a duplicate)
     func isOriginal(word: String) -> Bool {
-        return true
+        return !usedWords.contains(word)
     }
     
     
@@ -137,7 +147,17 @@ class ViewController: UITableViewController {
     /// - Parameter word: word that will be checked
     /// - Returns: if the world is a real one (searchable on a dictionary)
     func isReal(word: String) -> Bool {
-        return true
+        
+        // iOS class to spot spelling errors
+        let checker = UITextChecker()
+        
+        // Create a range from a string
+        let range = NSMakeRange(0, word.utf16.count)
+        
+        // Get the range of misspelled words
+        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+        
+        return misspelledRange.location == NSNotFound
     }
     
 }
