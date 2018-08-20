@@ -67,6 +67,10 @@ class ViewController: UIViewController {
             // [] LabelX between the edges of the view [ xxx ]
             // The name of the label uses the diccionary keys to find out the view for each label (see page 254)
             view.addConstraints( NSLayoutConstraint.constraints(withVisualFormat: "H:|[\(label)]|", options: [], metrics: nil, views:viewsDictionary))
+            
+            // V: Vertical Layout
+            // -  Space between views (10 points by default)
+            view.addConstraints( NSLayoutConstraint.constraints(withVisualFormat: "V:|-[label1]-[label2]-[label3]-[label4]-[label5]", options: [], metrics: nil, views: viewsDictionary))
         }
         
         print("Checkpoint 1")
