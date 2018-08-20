@@ -56,6 +56,19 @@ class ViewController: UIViewController {
         view.addSubview(label4)
         view.addSubview(label5)
         
+        // Dictionary of views
+        let viewsDictionary = ["label1": label1, "label2": label2,
+                               "label3": label3, "label4": label4, "label5": label5]
+        
+        for label in viewsDictionary.keys {
+            // Auto Layout Visual Format Language (VFL)
+            // H: Horitzontal layout
+            // |  Edge of the view (of the view controller in this case)
+            // [] LabelX between the edges of the view [ xxx ]
+            // The name of the label uses the diccionary keys to find out the view for each label (see page 254)
+            view.addConstraints( NSLayoutConstraint.constraints(withVisualFormat: "H:|[\(label)]|", options: [], metrics: nil, views:viewsDictionary))
+        }
+        
         print("Checkpoint 1")
         
     }
