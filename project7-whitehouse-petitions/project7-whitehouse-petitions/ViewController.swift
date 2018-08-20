@@ -10,11 +10,26 @@ import UIKit
 
 class ViewController: UITableViewController {
     
-    var petitions = [String]()
+    // Array of dictionaries.
+    var petitions = [[String: String]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        
+        // Ensures that the url is safe
+        if let url = URL(string: urlString) {
+            
+            // Get the URL contents
+            if let data = try? String(contentsOf: url) {
+                let json = JSON(parseJSON: data)
+                if json["metadata"]["responseInfo"]["status"].intValue == 200 {
+                    parse(json: json)
+                }
+            }
+         }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,6 +43,23 @@ class ViewController: UITableViewController {
         cell.detailTextLabel?.text = "Subtitle goes here"
         
         return cell
+    }
+    
+    
+    /// Parses the recieved Whitehouse petitions JSON in order to save the important fields of the petitions and reloads the tableView data
+    ///
+    /// - Parameter json: The result JSON to be parsed (Whitehouse petitions)
+    func parse(json: JSON) {
+        for result in json["results"].arrayValue {              // Array of objects or Empty array
+            let title = result["title"].stringValue             // String value or Empty String
+            let body = result["body"].stringValue               // String value or Empty String
+            let sigs = result["signatureCount"].stringValue     // String value or Empty String
+            let obj = ["title": title, "body": body, "sigs": sigs]
+            
+            print(obj)
+            petitions.append(obj)
+        }
+        tableView.reloadData()
     }
 
 }

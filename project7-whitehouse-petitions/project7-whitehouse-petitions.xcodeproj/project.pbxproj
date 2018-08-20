@@ -12,6 +12,7 @@
 		330442E1212AE60C001A1EB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330442DF212AE60C001A1EB9 /* Main.storyboard */; };
 		330442E3212AE60D001A1EB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330442E2212AE60D001A1EB9 /* Assets.xcassets */; };
 		330442E6212AE60D001A1EB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330442E4212AE60D001A1EB9 /* LaunchScreen.storyboard */; };
+		330442EE212B01DD001A1EB9 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330442ED212B01DD001A1EB9 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		330442E2212AE60D001A1EB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		330442E5212AE60D001A1EB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		330442E7212AE60D001A1EB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		330442ED212B01DD001A1EB9 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				330442E2212AE60D001A1EB9 /* Assets.xcassets */,
 				330442E4212AE60D001A1EB9 /* LaunchScreen.storyboard */,
 				330442E7212AE60D001A1EB9 /* Info.plist */,
+				330442ED212B01DD001A1EB9 /* SwiftyJSON.swift */,
 			);
 			path = "project7-whitehouse-petitions";
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				330442EE212B01DD001A1EB9 /* SwiftyJSON.swift in Sources */,
 				330442DE212AE60C001A1EB9 /* ViewController.swift in Sources */,
 				330442DC212AE60C001A1EB9 /* AppDelegate.swift in Sources */,
 			);
