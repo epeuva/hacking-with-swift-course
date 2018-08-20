@@ -45,4 +45,4 @@ Auto layout examples using only code with VFL (Auto Layout Visual Format Languag
 
 UILabel, addSubview, addConstraints, NSLayoutConstraint, Anchors (widthAnchor, heightAnchor, topAnchor, bottomAnchor).
 
-[Link to code](project6b-Guess-the-flag/project6b-Guess-the-flag)
+[Link to code](project6b-auto-layout-in-code/project6b-auto-layout-in-code)
