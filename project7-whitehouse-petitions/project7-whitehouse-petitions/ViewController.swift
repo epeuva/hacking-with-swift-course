@@ -46,6 +46,13 @@ class ViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // DetailViewController isn't in storyboard. So we can load the class directly
+        let vc = DetailViewController()
+        vc.detailItem = petitions[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     /// Parses the recieved Whitehouse petitions JSON in order to save the important fields of the petitions and reloads the tableView data
     ///

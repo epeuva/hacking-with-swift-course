@@ -13,6 +13,7 @@
 		330442E3212AE60D001A1EB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330442E2212AE60D001A1EB9 /* Assets.xcassets */; };
 		330442E6212AE60D001A1EB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330442E4212AE60D001A1EB9 /* LaunchScreen.storyboard */; };
 		330442EE212B01DD001A1EB9 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330442ED212B01DD001A1EB9 /* SwiftyJSON.swift */; };
+		330442F0212B0A18001A1EB9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330442EF212B0A18001A1EB9 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		330442E5212AE60D001A1EB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		330442E7212AE60D001A1EB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		330442ED212B01DD001A1EB9 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		330442EF212B0A18001A1EB9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				330442DB212AE60C001A1EB9 /* AppDelegate.swift */,
 				330442DD212AE60C001A1EB9 /* ViewController.swift */,
+				330442EF212B0A18001A1EB9 /* DetailViewController.swift */,
 				330442DF212AE60C001A1EB9 /* Main.storyboard */,
 				330442E2212AE60D001A1EB9 /* Assets.xcassets */,
 				330442E4212AE60D001A1EB9 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				330442EE212B01DD001A1EB9 /* SwiftyJSON.swift in Sources */,
 				330442DE212AE60C001A1EB9 /* ViewController.swift in Sources */,
 				330442DC212AE60C001A1EB9 /* AppDelegate.swift in Sources */,
+				330442F0212B0A18001A1EB9 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
