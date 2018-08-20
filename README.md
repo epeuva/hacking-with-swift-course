@@ -32,3 +32,17 @@ Web view app with loadView(), WKWebView, URL, URLRequest, UIToolbar, UIProgressV
 Game with UITableView, UIAlertController, world validation with NSRange, UITextChecker, normal and trailing closures and file loading with path(forResource:)
 
 [Link to code](project5-world-scramble/project5-world-scramble)
+
+### Project 6a - Guess the flag with Auto Layout (using UI)
+
+Same Game as project 2 with auto layout rules using the Xcode UI.
+
+[Link to code](project6a-Guess-the-flag/project6a-Guess-the-flag)
+
+### Project 6b - Auto Layout using VFL or Anchors
+
+Auto layout examples using only code with VFL (Auto Layout Visual Format Language) (first auto layout option) or Anchors (second auto layout option).
+
+UILabel, addSubview, addConstraints, NSLayoutConstraint, Anchors (widthAnchor, heightAnchor, topAnchor, bottomAnchor).
+
+[Link to code](project6b-auto-layout-in-code/project6b-auto-layout-in-code)
