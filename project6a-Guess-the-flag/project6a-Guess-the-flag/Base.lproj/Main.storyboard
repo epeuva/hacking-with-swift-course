@@ -48,6 +48,7 @@
                             <constraint firstItem="AgT-AQ-4ae" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="LX9-4f-4Bt"/>
                             <constraint firstItem="MXr-2C-VzV" firstAttribute="top" secondItem="AgT-AQ-4ae" secondAttribute="bottom" constant="30" id="bae-ZC-cRd"/>
                             <constraint firstItem="Qaz-8N-thj" firstAttribute="top" secondItem="MXr-2C-VzV" secondAttribute="bottom" constant="30" id="cDE-zC-KFk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Qaz-8N-thj" secondAttribute="bottom" constant="20" id="sOZ-IK-3im"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
