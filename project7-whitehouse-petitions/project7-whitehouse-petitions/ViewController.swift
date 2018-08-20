@@ -58,13 +58,12 @@ class ViewController: UITableViewController {
     ///
     /// - Parameter json: The result JSON to be parsed (Whitehouse petitions)
     func parse(json: JSON) {
-        for result in json["results"].arrayValue {              // Array of objects or Empty array
-            let title = result["title"].stringValue             // String value or Empty String
-            let body = result["body"].stringValue               // String value or Empty String
-            let sigs = result["signatureCount"].stringValue     // String value or Empty String
+        for result in json["results"].arrayValue {                                                              // Array of objects or Empty array
+            let title = result["title"].stringValue                                                             // String value or Empty String
+            let body = result["body"].stringValue.replacingOccurrences(of: "\n", with: "<br>")                  // String value or Empty String. Replaces \n with <br>
+            let sigs = result["signatureCount"].stringValue                                                     // String value or Empty String
             let obj = ["title": title, "body": body, "sigs": sigs]
             
-            print(obj)
             petitions.append(obj)
         }
         tableView.reloadData()
