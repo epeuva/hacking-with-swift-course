@@ -107,6 +107,8 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    /// Loads and parses the current level file in order to get all the current level information
     func loadLevel() {
         var clueString = ""
         var solutionString = ""
