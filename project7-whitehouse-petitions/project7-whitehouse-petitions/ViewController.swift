@@ -18,6 +18,7 @@ class ViewController: UITableViewController {
         
         let urlString: String
         
+        // Checks if the tabBarItem is 'Most Recent' or 'Top Rated'. See AppDelegate.swift.
         if navigationController?.tabBarItem.tag == 0 {
             urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
         } else {
@@ -26,15 +27,18 @@ class ViewController: UITableViewController {
         
         // Ensures that the url is safe
         if let url = URL(string: urlString) {
-            
+
             // Get the URL contents
             if let data = try? String(contentsOf: url) {
                 let json = JSON(parseJSON: data)
                 if json["metadata"]["responseInfo"]["status"].intValue == 200 {
                     parse(json: json)
+                    return
                 }
             }
-         }
+        }
+        
+        showError()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,6 +60,14 @@ class ViewController: UITableViewController {
         let vc = DetailViewController()
         vc.detailItem = petitions[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    /// Creates an UIAlertController in order to show a loading error to the user
+    func showError() {
+        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
     
