@@ -16,10 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var currentAnswer: UITextField!
     
-    
-    @IBOutlet weak var submitTapped: UIButton!
-    @IBOutlet weak var clearTapped: UIButton!
-    
     var letterButtons = [UIButton]()
     var activatedButtons = [UIButton]()
     var solutions = [String]()
@@ -45,7 +41,64 @@ class ViewController: UIViewController {
     ///
     /// - Parameter btn: the button tapped
     @objc func letterTapped(btn: UIButton) {
-        print(btn)
+        
+        // Clear Tap letters to guess message the first button tapped
+        if activatedButtons.count == 0 {
+            currentAnswer.text = ""
+        }
+        
+        // Append button text to the current answer
+        currentAnswer.text = currentAnswer.text! + btn.titleLabel!.text!
+        
+        // Buttons that the user has tapped
+        activatedButtons.append(btn)
+        btn.isHidden = true
+    }
+    
+    
+    /// Removes the text from the current answer. Unhides all buttons.
+    ///
+    /// - Parameter sender: the button that called the clearTapped event
+    @IBAction func clearTapped(_ sender: Any) {
+        currentAnswer.text = "Tap letters to guess"
+        
+        for btn in activatedButtons {
+            btn.isHidden = false
+        }
+        activatedButtons.removeAll()
+    }
+
+    
+    @IBAction func submitTapped(_ sender: Any) {
+        if let solutionPosition = solutions.index(of: currentAnswer.text!) {
+            activatedButtons.removeAll()
+            var splitAnswers = answersLabel.text!.components(separatedBy: "\n")
+            splitAnswers[solutionPosition] = currentAnswer.text!
+            answersLabel.text = splitAnswers.joined(separator: "\n")
+            currentAnswer.text = "Tap letters to guess"
+            score += 1
+            
+            // If score is 7, we could go to the next game level
+            if score % 7 == 0 {
+                let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
+                present(ac, animated: true)
+            }
+        }
+        
+    }
+    
+    
+    /// Increases the level of the current game.
+    ///
+    /// - Parameter action: UIAlertAction that produced this event (from UIAlertController)
+    func levelUp(action: UIAlertAction) {
+        level += 1
+        solutions.removeAll(keepingCapacity: true)
+        loadLevel()
+        for btn in letterButtons {
+            btn.isHidden = false
+        }
     }
     
     func loadLevel() {
@@ -80,7 +133,6 @@ class ViewController: UIViewController {
         
         letterBits = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: letterBits) as! [String]
         if letterBits.count == letterButtons.count {
-            
             // "..<" half-open range operator: do not include the upper limit
             for i in 0 ..< letterBits.count {
                 letterButtons[i].setTitle(letterBits[i], for: .normal)

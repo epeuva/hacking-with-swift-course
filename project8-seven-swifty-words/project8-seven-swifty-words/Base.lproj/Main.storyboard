@@ -182,11 +182,17 @@
                                 <rect key="frame" x="425" y="390" width="75" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SUBMIT"/>
+                                <connections>
+                                    <action selector="submitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jsR-CA-XRy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="905-AF-CTc">
                                 <rect key="frame" x="525" y="390" width="75" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="CLEAR"/>
+                                <connections>
+                                    <action selector="clearTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f38-5M-AC6"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" text="Tap letters to guess" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xiv-pZ-j58">
                                 <rect key="frame" x="245" y="315" width="537" height="80"/>
@@ -222,10 +228,8 @@
                     </view>
                     <connections>
                         <outlet property="answersLabel" destination="1Iz-B3-0wH" id="0eg-Mt-om4"/>
-                        <outlet property="clearTapped" destination="905-AF-CTc" id="Bgc-7m-S58"/>
                         <outlet property="cluesLabel" destination="4YX-eG-QFy" id="XSd-4L-hL8"/>
                         <outlet property="currentAnswer" destination="Xiv-pZ-j58" id="GsC-ei-MWV"/>
-                        <outlet property="submitTapped" destination="Jkj-R5-PRG" id="osK-mw-aoU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
