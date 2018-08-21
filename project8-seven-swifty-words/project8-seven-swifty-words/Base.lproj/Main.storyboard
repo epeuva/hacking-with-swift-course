@@ -220,6 +220,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="answersLabel" destination="1Iz-B3-0wH" id="0eg-Mt-om4"/>
+                        <outlet property="clearTapped" destination="905-AF-CTc" id="Bgc-7m-S58"/>
+                        <outlet property="cluesLabel" destination="4YX-eG-QFy" id="XSd-4L-hL8"/>
+                        <outlet property="currentAnswer" destination="Xiv-pZ-j58" id="GsC-ei-MWV"/>
+                        <outlet property="submitTapped" destination="Jkj-R5-PRG" id="osK-mw-aoU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
