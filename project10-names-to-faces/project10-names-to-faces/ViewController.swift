@@ -62,8 +62,15 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         dismiss(animated: true)
     }
     
+    
+    /// Gets the user documents directory URL in order to save private information for the app
+    ///
+    /// - Returns: URL having the user's documents directory
     func getDocumentsDirectory() -> URL {
-        return URL(fileURLWithPath: "")
+        // Documents directory relative to the users home directory. Has an array with one thing: The user's documents directory.
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
     }
 
     
