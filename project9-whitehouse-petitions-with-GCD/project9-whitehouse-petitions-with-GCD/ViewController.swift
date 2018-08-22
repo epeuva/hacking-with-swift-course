@@ -19,7 +19,6 @@ class ViewController: UITableViewController {
         // Pass the method fetchJSON to the background thread. #selector requires @objc when calling the function
         performSelector(inBackground: #selector(fetchJSON), with:nil)
         
-        showError()
     }
     
     
@@ -99,11 +98,8 @@ class ViewController: UITableViewController {
             petitions.append(obj)
         }
         
-        // Return user interface work to the main thread.
-        // !!!! (Pag 313): it's never OK to do user interface work on the background thread !!!!
-        DispatchQueue.main.async { [unowned self] in
-            self.tableView.reloadData()
-        }
+        // Without tableView an NSException with unrecognized selector sent to instance XXX is thrown
+        tableView.performSelector(onMainThread:#selector(UITableView.reloadData), with: nil, waitUntilDone:false)
     }
 
 }
