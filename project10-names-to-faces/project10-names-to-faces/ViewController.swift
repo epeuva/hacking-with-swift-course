@@ -57,6 +57,28 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         cell.layer.cornerRadius = 7
         return cell
     }
+    
+    
+    /// Allows the user to edit the Person name when tapping a cell
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let person = people[indexPath.item]
+        
+        // Creates an UIAlert in order to be able to rename a person name
+        let ac = UIAlertController(title: "Rename person", message:nil, preferredStyle: .alert)
+        
+        ac.addTextField() // adds an input text field in order to be able to edit the Person name
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.addAction(UIAlertAction(title: "OK", style: .default)
+            { [unowned self, ac] _ in
+                let newName = ac.textFields![0]
+                person.name = newName.text!
+                self.collectionView?.reloadData()
+            }
+        )
+        
+        present(ac, animated: true)
+    }
 
     
     // Function called when the user has selected an image
