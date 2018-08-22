@@ -32,7 +32,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     
     // Number of items in the UICollectionView (placeholder at this moment)
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return people.count
     }
     
     
@@ -40,6 +40,21 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // Create a view cell based on the created UICollectionViewCell Person
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Person", for: indexPath) as! PersonCell // Typecast to PersonCell
+        
+        // get the People object based on UICollectionView current index
+        let person = people[indexPath.item]
+        
+        // get the name
+        cell.name.text = person.name
+        // get the image path
+        let path = getDocumentsDirectory().appendingPathComponent(person.image)
+        
+        // Get the UIImage and apply a rounded border color using CALayer & CGColor
+        cell.imageView.image = UIImage(contentsOfFile: path.path)
+        cell.imageView.layer.borderColor = UIColor(red: 0, green: 0,blue: 0, alpha: 0.3).cgColor
+        cell.imageView.layer.borderWidth = 2
+        cell.imageView.layer.cornerRadius = 3
+        cell.layer.cornerRadius = 7
         return cell
     }
 
