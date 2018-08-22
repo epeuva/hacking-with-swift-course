@@ -10,6 +10,8 @@ import UIKit
 
 // Class supports two protocols: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var people = [Person]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +60,11 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         if let jpegData = UIImageJPEGRepresentation(image, 80) {
             try? jpegData.write(to: imagePath)
         }
+        
+        // Adds the new person to the people array and reload the collectionView
+        let person = Person(name: "Unknown", image: imageName)
+        people.append(person)
+        collectionView?.reloadData()
         
         dismiss(animated: true)
     }
