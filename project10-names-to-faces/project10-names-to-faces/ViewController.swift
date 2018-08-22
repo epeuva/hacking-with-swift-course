@@ -116,9 +116,5 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let documentsDirectory = paths[0]
         return documentsDirectory
     }
-
-    
-    
     
 }
-
