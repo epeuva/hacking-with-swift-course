@@ -46,3 +46,15 @@ Auto layout examples using only code with VFL (Auto Layout Visual Format Languag
 UILabel, addSubview, addConstraints, NSLayoutConstraint, Anchors (widthAnchor, heightAnchor, topAnchor, bottomAnchor).
 
 [Link to code](project6b-auto-layout-in-code/project6b-auto-layout-in-code)
+
+### Project 7 - Whitehouse Petitions
+
+UITableView with Most Recent and Top Rated Whitehouse Petitions [https://petitions.whitehouse.gov/developers](https://petitions.whitehouse.gov/developers) inside a UINavigationController and UITabBarController. URL(string: ), String(contentsOf: url) and JSON(parseJSON: data) using SwiftyJSON (hard-copied to the project)
+
+[Link to code](project7-whitehouse-petitions/project7-whitehouse-petitions)
+
+### Project 8 - Seven (7) Swifty Words
+
+Game like '7 Swifty Words' using UIKit, attach click event methods in code 'addTarget()', property obervers 'didSet() or willSet()', enumerated(), index(of:), joined(), replacingOccurrences(), components(separatedBy:), Bundle.main.path(forResource:, ofType:), String(contentsOfFile:)
+
+[Link to code](project8-seven-swifty-words/project8-seven-swifty-words)
