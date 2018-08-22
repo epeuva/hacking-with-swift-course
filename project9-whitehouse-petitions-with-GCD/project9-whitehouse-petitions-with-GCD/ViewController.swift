@@ -72,9 +72,13 @@ class ViewController: UITableViewController {
     
     /// Creates an UIAlertController in order to show a loading error to the user
     func showError() {
-        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+        // Return user interface work to the main thread.
+        // !!!! (Pag 313): it's never OK to do user interface work on the background thread !!!!
+        DispatchQueue.main.async { [unowned self] in
+            let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(ac, animated: true)
+        }
     }
     
     
