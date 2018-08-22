@@ -12,7 +12,14 @@ class ViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Adds an add button to the navigation controller
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+    }
+    
+    
+    /// Adds a person to the application
+    @objc func addNewPerson() {
     }
     
     
