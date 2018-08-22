@@ -15,6 +15,17 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Pass the method fetchJSON to the background thread. #selector requires @objc when calling the function
+        performSelector(inBackground: #selector(fetchJSON), with:nil)
+        
+        showError()
+    }
+    
+    
+    /// Recovers all petition info from the Whitehouse servers.
+    /// @objc is required as we are calling this function with #selector(fetchJSON).
+    @objc func fetchJSON() {
         
         let urlString: String
         
@@ -25,28 +36,33 @@ class ViewController: UITableViewController {
             urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=100"
         }
         
-        // async() using GDC Apple framework
-        // [unowned self] to avoid strong reference
-        // See other QoS queues like ".userInteractive, .utility or .background)
-        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+        // Ensures that the url is safe
+        if let url = URL(string: urlString) {
             
-            // Ensures that the url is safe
-            if let url = URL(string: urlString) {
-                
-                // Get the URL contents
-                if let data = try? String(contentsOf: url) {
-                    let json = JSON(parseJSON: data)
-                    if json["metadata"]["responseInfo"]["status"].intValue == 200 {
-                        self.parse(json: json)
-                        return
-                    }
+            // Get the URL contents
+            if let data = try? String(contentsOf: url) {
+                let json = JSON(parseJSON: data)
+                if json["metadata"]["responseInfo"]["status"].intValue == 200 {
+                    self.parse(json: json)
+                    return
                 }
             }
-            
         }
         
-        showError()
+        // Pass the method showError to the main thread.
+        performSelector(onMainThread: #selector(showError), with:nil, waitUntilDone: false)
+        
     }
+    
+    
+    /// Creates an UIAlertController in order to show a loading error to the user
+    @objc func showError() {
+        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(ac, animated: true)
+    }
+    
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return petitions.count;
@@ -67,18 +83,6 @@ class ViewController: UITableViewController {
         let vc = DetailViewController()
         vc.detailItem = petitions[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
-    /// Creates an UIAlertController in order to show a loading error to the user
-    func showError() {
-        // Return user interface work to the main thread.
-        // !!!! (Pag 313): it's never OK to do user interface work on the background thread !!!!
-        DispatchQueue.main.async { [unowned self] in
-            let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(ac, animated: true)
-        }
     }
     
     
