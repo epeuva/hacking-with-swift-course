@@ -90,7 +90,12 @@ class ViewController: UITableViewController {
             
             petitions.append(obj)
         }
-        tableView.reloadData()
+        
+        // Return user interface work to the main thread.
+        // !!!! (Pag 313): it's never OK to do user interface work on the background thread !!!!
+        DispatchQueue.main.async { [unowned self] in
+            self.tableView.reloadData()
+        }
     }
 
 }
