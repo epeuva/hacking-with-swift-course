@@ -59,9 +59,8 @@ Basic example of UserDefaults read and write.
 
 ### [Project 12a](project12a-names-to-faces-with-user-defaults-nscoding/project12a-names-to-faces-with-user-defaults-nscoding) - Names to Faces with UserDefaults using NSCoding
 
-WiP
+Names to Faces _(project10)_ with "data persistance" using UserDefaults with NSCoding
 
 ### [Project 12b](project12b-names-to-faces-with-user-defaults-codable/project12b-names-to-faces-with-user-defaults-codable) - Names to Faces with UserDefaults using Codable
 
-WiP
-
+Names to Faces _(project10)_ with "data persistance" using UserDefaults with Codable
