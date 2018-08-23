@@ -18,6 +18,18 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         // Adds an add button to the navigation controller
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        
+        // Load data from USerDefaults
+        let defaults = UserDefaults.standard
+        
+        if let savedPeople = defaults.object(forKey: "people") as? Data {
+            let jsonDecoder = JSONDecoder()
+            do {
+                people = try jsonDecoder.decode([Person].self, from: savedPeople)
+            } catch {
+                print("Failed to load people")
+            }
+        }
     }
     
     
