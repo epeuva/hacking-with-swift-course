@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Person: NSObject {
+class Person: NSObject, Codable {
     
     
     // Those two properties must have a value, because they are not optional (!, ?)

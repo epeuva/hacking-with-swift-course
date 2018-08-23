@@ -74,6 +74,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
                 let newName = ac.textFields![0]
                 person.name = newName.text!
                 self.collectionView?.reloadData()
+                // Persist UserDefaults. Self is required as we are inside a clousure
+                self.save()
             }
         )
         
@@ -103,6 +105,9 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         people.append(person)
         collectionView?.reloadData()
         
+        // Persist UserDefaults
+        save()
+        
         dismiss(animated: true)
     }
     
@@ -115,6 +120,17 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths[0]
         return documentsDirectory
+    }
+    
+    /// Saves People data to UserDefaults (Codable way)
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        if let savedData = try? jsonEncoder.encode(people) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "people")
+        } else {
+            print("Failed to save people.")
+        }
     }
     
 }
