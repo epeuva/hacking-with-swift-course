@@ -18,6 +18,14 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         // Adds an add button to the navigation controller
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        
+        // Load data from USerDefaults
+        let defaults = UserDefaults.standard
+        
+        if let savedPeople = defaults.object(forKey: "people") as? Data
+        {
+            people = NSKeyedUnarchiver.unarchiveObject(with:savedPeople) as! [Person] // Convert Data Object to Array of Person
+        }
     }
     
     
@@ -74,6 +82,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
                 let newName = ac.textFields![0]
                 person.name = newName.text!
                 self.collectionView?.reloadData()
+                // Persist UserDefaults. Self is required as we are inside a clousure
+                self.save()
             }
         )
         
@@ -103,6 +113,9 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         people.append(person)
         collectionView?.reloadData()
         
+        // Persist UserDefaults
+        save()
+        
         dismiss(animated: true)
     }
     
@@ -115,6 +128,16 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths[0]
         return documentsDirectory
+    }
+    
+    
+    /// Saves People data to UserDefaults
+    func save() {
+        // Convert People array to Data Object
+        let savedData = NSKeyedArchiver.archivedData(withRootObject:people)
+        // Save created Data Objecto o UserDefaults
+        let defaults = UserDefaults.standard
+        defaults.set(savedData, forKey: "people")
     }
     
 }
