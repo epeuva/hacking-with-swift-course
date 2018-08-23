@@ -61,7 +61,7 @@ Basic example of UserDefaults read and write.
 
 WiP
 
-### [Project 12b](project12b-names-to-faces-with-user-defaults-nscoding/project12b-names-to-faces-with-user-defaults-nscoding) - Names to Faces with UserDefaults using Codable
+### [Project 12b](project12b-names-to-faces-with-user-defaults-codable/project12b-names-to-faces-with-user-defaults-codable) - Names to Faces with UserDefaults using Codable
 
 WiP
 
