@@ -48,3 +48,7 @@ Whitehouse Petitions _(project7)_ app updated with GCD Framework (Grand Central 
 ### [Project 10](project10-names-to-faces/project10-names-to-faces) - Names to Faces
 
 UICollectionView with UIImagePickerController, UUID, Person class based on NSObject, UIImage with CGColor (colored border radius), UIAlert, UIImageJPEGRepresentation and FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+### Project 11 - Pachinko
+
+TODO.
