@@ -31,15 +31,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         currentFilter = CIFilter(name: "CISepiaTone")
     }
     
-    @IBAction func save(_ sender: Any) {
-        UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
-    }
     
-    /// Take care. Actios is Touch Up Inside, not Value Changed
+    /// Take care. Action is 'Touch Up Inside', not 'Value Changed'
     @IBAction func intensityChanged(_ sender: Any) {
          applyProcessing()
     }
     
+    
+    /// Saves an edited image
+    @IBAction func save(_ sender: Any) {
+        UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    
+    /// See: UIImageWriteToSavedPhotosAlbum
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             // we got back an error!
@@ -117,6 +122,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
+    /// Configures de filter of each UIAlertAction
     func setFilter(action: UIAlertAction) {
         // make sure we have a valid image before continuing!
         guard currentImage != nil else { return }
