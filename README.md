@@ -52,3 +52,16 @@ UICollectionView with UIImagePickerController, UUID, Person class based on NSObj
 ### Project 11 - Pachinko
 
 TODO.
+
+### [Project 12](project12-user-defaults/project12-user-defaults) - UserDefaults
+
+Basic example of UserDefaults read and write.
+
+### [Project 12a](project12a-names-to-faces-with-user-defaults-nscoding/project12a-names-to-faces-with-user-defaults-nscoding) - Names to Faces with UserDefaults using NSCoding
+
+WiP
+
+### [Project 12b](project12b-names-to-faces-with-user-defaults-nscoding/project12b-names-to-faces-with-user-defaults-nscoding) - Names to Faces with UserDefaults using Codable
+
+WiP
+
