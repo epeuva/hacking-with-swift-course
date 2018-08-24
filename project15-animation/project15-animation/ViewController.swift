@@ -46,6 +46,11 @@ class ViewController: UIViewController {
                     // Clears any applied transforms
                     self.imageView.transform = CGAffineTransform.identity
                     break;
+                case 2:
+                    // Moves the image the amount of points
+                    self.imageView.transform = CGAffineTransform(translationX: -256, y: -256)
+                case 3:
+                    self.imageView.transform = CGAffineTransform.identity
                 default:
                     break
                 }
