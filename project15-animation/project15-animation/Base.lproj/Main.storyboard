@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htG-h8-D0K">
-                                <rect key="frame" x="184" y="591" width="46" height="44"/>
+                                <rect key="frame" x="164" y="591" width="86" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="tCl-Fj-CdC"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Animate me!"/>
                                 <connections>
                                     <action selector="tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wTg-Q3-BfX"/>
                                 </connections>
