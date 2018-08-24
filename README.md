@@ -104,3 +104,9 @@ Image edition with filters using UIImageView, UISlider, CIImage, CIFilter, UIIma
 ## Project 14 - Whack a Penguin
 
 TODO.
+
+## Project 15 - Animation
+
+Animation example with CGAffineTransform(scaleX: , y: ), CGAffineTransform.identity, CGAffineTransform(translationX: , y: ), CGAffineTransform(rotationAngle: ), imageView.alpha, imageView.backgroundColor
+
+[Link to code](project15-animation/project15-animation)
