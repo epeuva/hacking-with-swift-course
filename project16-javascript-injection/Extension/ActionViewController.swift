@@ -15,35 +15,18 @@ class ActionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // Get the item[s] we're handling from the extension context.
         
-        // For example, look for an image and place it into an image view.
-        // Replace this with something appropriate for the type[s] your extension supports.
-        var imageFound = false
-        for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
-            for provider in item.attachments! as! [NSItemProvider] {
-                if provider.hasItemConformingToTypeIdentifier(kUTTypeImage as String) {
-                    // This is an image. We'll load it, then place it in our image view.
-                    weak var weakImageView = self.imageView
-                    provider.loadItem(forTypeIdentifier: kUTTypeImage as String, options: nil, completionHandler: { (imageURL, error) in
-                        OperationQueue.main.addOperation {
-                            if let strongImageView = weakImageView {
-                                if let imageURL = imageURL as? URL {
-                                    strongImageView.image = UIImage(data: try! Data(contentsOf: imageURL))
-                                }
-                            }
-                        }
-                    })
-                    
-                    imageFound = true
-                    break
+        
+        // extensionContext allows us to interact with parent app.
+        // inputItems will carry an array of data the parent app is sending to our extension to use
+        if let inputItem = extensionContext!.inputItems.first as? NSExtensionItem {
+            // Array of attachments wrapped as an NSItemProvider
+            if let itemProvider = inputItem.attachments?.first as? NSItemProvider {
+                // Calls the item provider so it provides "really" the item. ASYNC!
+                itemProvider.loadItem(forTypeIdentifier: kUTTypePropertyList as String)
+                { [unowned self] (dict, error) in
+                    // do stuff!
                 }
-            }
-            
-            if (imageFound) {
-                // We only handle one image, so stop looking for more.
-                break
             }
         }
     }
