@@ -39,11 +39,17 @@ class ViewController: UIViewController {
             { [unowned self] in // avoid strong references
                 switch self.currentAnimation {
                 case 0:
+                    // Animation for 2x default size. (default with ease in / ease out)
+                    self.imageView.transform = CGAffineTransform(scaleX: 2, y: 2)
                     break
+                case 1:
+                    // Clears any applied transforms
+                    self.imageView.transform = CGAffineTransform.identity
+                    break;
                 default:
                     break
                 }
-        }) { [unowned self] (finished: Bool) in // 
+        }) { [unowned self] (finished: Bool) in //
             
             // Show the tap button
             self.tap.isHidden = false
