@@ -100,3 +100,7 @@ Names to Faces _(project10)_ with "data persistance" using UserDefaults with Cod
 Image edition with filters using UIImageView, UISlider, CIImage, CIFilter, UIImageWriteToSavedPhotosAlbum. Search for "Core Image Filter Reference" for more filter keys like "kCIInputIntensityKey, kCIInputRadiusKey, ..."
 
 [Link to code](project13-instafilter/project13-instafilter)
+
+## Project 14 - Whack a Penguin
+
+TODO.
