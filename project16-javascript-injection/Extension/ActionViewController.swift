@@ -25,7 +25,10 @@ class ActionViewController: UIViewController {
                 // Calls the item provider so it provides "really" the item. ASYNC!
                 itemProvider.loadItem(forTypeIdentifier: kUTTypePropertyList as String)
                 { [unowned self] (dict, error) in
-                    // do stuff!
+                    // NSDictionary like Dictionary, but without specifying the data types.
+                    let itemDictionary = dict as! NSDictionary
+                    let javaScriptValues = itemDictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
+                    print(javaScriptValues)
                 }
             }
         }
