@@ -15,6 +15,7 @@
 		3316944B213023A7005001B4 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316944A213023A7005001B4 /* ActionViewController.swift */; };
 		3316944E213023A7005001B4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3316944C213023A7005001B4 /* MainInterface.storyboard */; };
 		33169452213023A7005001B4 /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 33169448213023A7005001B4 /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3316945821303034005001B4 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 3316945721303034005001B4 /* Action.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		3316944A213023A7005001B4 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		3316944D213023A7005001B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		3316944F213023A7005001B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3316945721303034005001B4 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				3316944A213023A7005001B4 /* ActionViewController.swift */,
 				3316944C213023A7005001B4 /* MainInterface.storyboard */,
 				3316944F213023A7005001B4 /* Info.plist */,
+				3316945721303034005001B4 /* Action.js */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3316945821303034005001B4 /* Action.js in Resources */,
 				3316944E213023A7005001B4 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
